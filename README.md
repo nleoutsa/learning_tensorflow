@@ -5,4 +5,4 @@ Pull tensorflow docker container:
 
 Run:
 
-    docker run -it --rm -v $PWD:/tmp -w /tmp tensorflow/tensorflow python ./main.py
+    docker run -it --rm -v $PWD:/tmp -w /tmp tensorflow/tensorflow python ./path/to/script.py

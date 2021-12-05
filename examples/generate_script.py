@@ -1,7 +1,7 @@
 import tensorflow as tf
 import tensorflow.keras as k
 import numpy as np
-from fetched_script_data import corpus
+from data_load_and_prep.fetched_script_data import corpus
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 

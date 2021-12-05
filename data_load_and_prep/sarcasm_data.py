@@ -1,7 +1,7 @@
 import json
 
 
-with open("Sarcasm_Headlines_Dataset.json", 'r') as f:
+with open("datasets/sarcasm/Sarcasm_Headlines_Dataset.json", 'r') as f:
     datastore = json.load(f)
 
 data = {

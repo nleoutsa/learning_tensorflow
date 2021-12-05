@@ -1,8 +1,7 @@
-import tensorflow as tf
 import numpy as np
 from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
-from model import compile_model
+from examples.detect_sarcasm.model import compile_model
 
 VOCAB_SIZE = 100000
 TRAINING_SIZE = 22000
