@@ -1,12 +1,23 @@
 import tensorflow as tf
 import tensorflow.keras as k
 import numpy as np
+import matplotlib.pyplot as plt
+
+# Prompt:
+# https://bit.ly/tfw-lab2cv
 
 EPOCHS = 5
 
 # data
 fashion_mnist_data = k.datasets.fashion_mnist
 (train_images, train_labels), (test_images, test_labels) = fashion_mnist_data.load_data()
+
+train_images = train_images / 255.0
+test_images = test_images / 255.0
+
+plt.imshow(train_images[0])
+print(train_labels[0])
+print(train_images[0])
 
 # build model layers
 model = k.Sequential()
@@ -25,7 +36,7 @@ model.add(k.layers.Dense(128, activation=tf.nn.relu))  # why 128 neurons?
 model.add(k.layers.Dense(10, activation=tf.nn.softmax))
 
 # compile model using optimizer and loss fns
-model.compile(optimizer='adam', loss='sparse_categorical_crossentropy')
+model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
 # vector sequences
 xs = train_images
@@ -36,9 +47,19 @@ model.fit(xs, ys, epochs=EPOCHS)
 
 # predict/evaluate from model
 # model.predict()  #
-test_loss, test_accuracy = model.evaluate(test_images, test_labels)
+evaluation = model.evaluate(test_images, test_labels)
 
-print('loss:')
-print(test_loss)
-print('\naccuracy:')
-print(test_accuracy)
+print('evaluation:')
+print(evaluation)
+
+classifications = model.predict(test_images)
+
+print('\nprediction:')
+print(classifications)
+print(test_labels)
+
+print('\nprediction[0]:')
+print(classifications[0])
+print(test_labels[0])
+
+
